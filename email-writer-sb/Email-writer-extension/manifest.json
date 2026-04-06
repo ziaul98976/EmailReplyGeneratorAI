@@ -1,0 +1,36 @@
+{
+    "name": "AI Email reply ",
+    "description": "AI-powered email reply generator with different writing Tone weather it is professional, casual or friendly..",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions":["activeTab","storage"],
+
+    
+"background": {
+        "service_worker": "background.js"
+},
+
+
+    "host_permissions":["http://localhost:8080/*",
+     "*://mail.google.com/*"
+    ],
+
+"content_scripts":[
+    {
+        "js":["content.js"],
+        "matches":["*://mail.google.com/*"],
+        "css":["content.css"],
+        "run_at":"document_end"
+    }
+],
+"web_accessible_resources":[
+    {
+        "resources":["icons/*"],
+        "matches":["*://mail.google.com/*"]
+    }
+],
+
+    "action": {
+      "default_title": "AI Email reply"
+    }
+  }
